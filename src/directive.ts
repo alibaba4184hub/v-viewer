@@ -1,11 +1,11 @@
-import Viewer from 'viewerjs'
+import Viewer from 'viewerjs-vue'
 import { debounce } from 'lodash-es'
 import { nextTick, watch } from 'vue'
 import type { Directive, DirectiveBinding, VNode } from 'vue'
 
 export type ICreateViewer = (el: HTMLElement, options: Viewer.Options, rebuild: boolean, observer: boolean) => void
 
-const directive = ({ name = 'viewer', debug = false } = {}) => {
+const directive = ({ name = 'viewer-picture', debug = false } = {}) => {
   async function createViewer(el: HTMLElement, options: Viewer.Options, rebuild = false, observer = false) {
     await nextTick()
     // 如果启用了元素监听，但和上次比较没有变化，就不重新初始化或更新
@@ -109,7 +109,7 @@ const directive = ({ name = 'viewer', debug = false } = {}) => {
       // 是否监听dom变化
       if (!binding.modifiers.static) {
         // 增加dom变化监听
-        createObserver(el, binding.value, debouncedCreateViewer, binding.modifiers.rebuild)
+        createObserver(el, binding.value, debouncedCreateViewer, binding.modifiers.rebuild ?? false)
       }
     },
     unmounted(el) {

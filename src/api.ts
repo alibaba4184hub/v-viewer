@@ -1,5 +1,5 @@
 import { h, render } from 'vue'
-import Viewer from 'viewerjs'
+import Viewer from 'viewerjs-vue'
 import { assign } from 'lodash-es'
 
 export interface ViewerApiOptions {

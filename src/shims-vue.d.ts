@@ -12,3 +12,13 @@ declare interface Window {
 declare interface HTMLElement {
   [key: string]: any
 }
+
+declare namespace JSX {
+  interface IntrinsicElements {
+    [elem: string]: any
+  }
+  interface Element extends VNode {}
+  interface ElementClass {
+    $props: {}
+  }
+}

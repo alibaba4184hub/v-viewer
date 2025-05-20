@@ -1,5 +1,5 @@
 import { App } from 'vue'
-import ViewerJs from 'viewerjs'
+import ViewerJs from 'viewerjs-vue'
 import type { Directive, DefineComponent } from 'vue'
 
 declare namespace VueViewer {

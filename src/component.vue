@@ -7,7 +7,7 @@ import {
   ref,
   watch,
 } from 'vue'
-import Viewer from 'viewerjs'
+import Viewer from 'viewerjs-vue'
 import type { PropType } from 'vue'
 
 export default defineComponent({
@@ -31,7 +31,7 @@ export default defineComponent({
     },
   },
   emits: ['inited'],
-  setup(props, { emit }) {
+  setup(props: { options: Viewer.Options | undefined; rebuild: any; images: any; trigger: any }, { emit }: any) {
     let $viewer: Viewer
     const root = ref()
 
