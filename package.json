@@ -2,7 +2,7 @@
   "name": "v-viewer-picture",
   "scope": "VueViewer",
   "type": "module",
-  "version": "1.1.2",
+  "version": "1.1.5",
   "description": "Image viewer component for vue, supports rotation, scale, zoom and so on, based on viewer.js",
   "author": "mirari",
   "license": "MIT",
@@ -51,11 +51,12 @@
     "publish:next": "npm run build && npm publish --tag next"
   },
   "peerDependencies": {
+    "viewerjs-vue": "^1.1.5",
     "vue": "^3.0.0"
   },
   "dependencies": {
     "lodash-es": "^4.17.21",
-    "viewerjs-vue": "^1.1.2"
+    "viewerjs-vue": "^1.1.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",

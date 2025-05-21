@@ -19,7 +19,7 @@ export {
 }
 
 export default {
-  install(app: App, { name = 'viewer', debug = false, defaultOptions }: InstallationOptions = {}) {
+  install(app: App, { name = 'viewer-picture', debug = false, defaultOptions }: InstallationOptions = {}) {
     if (defaultOptions) {
       Viewer.setDefaults(defaultOptions)
     }

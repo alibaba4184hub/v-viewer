@@ -193,7 +193,7 @@ const show = () => {
     </p>
     <div
       ref="el"
-      v-viewer="options"
+      v-viewer-picture="options"
       class="images clearfix"
     >
       <template v-for="{ source, thumbnail, title } in images" :key="source">

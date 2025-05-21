@@ -1,4 +1,4 @@
-# v-viewer
+# v-viewer-picture
 
 Image viewer component for vue, supports rotation, scale, zoom and so on, based on [viewer.js](https://github.com/fengyuanchen/viewerjs)
 
@@ -33,12 +33,12 @@ Image viewer component for vue, supports rotation, scale, zoom and so on, based 
 Install from NPM
 
 ```bash
-npm install v-viewer viewerjs
+npm install v-viewer-picture
 ```
 
 ## Usage
 
-To use `v-viewer`, simply import it and the `css` file, and call `app.use()` to install.
+To use `v-viewer-picture`, simply import it and the `css` file, and call `app.use()` to install.
 
 The component, directive and api will be installed together in the global.
 
@@ -47,8 +47,8 @@ Two different API styles are both supported: **Options API** and **Composition A
 ```ts
 import { createApp } from 'vue'
 import App from './App.vue'
-import 'viewerjs/dist/viewer.css'
-import VueViewer from 'v-viewer'
+import 'viewerjs-vue/dist/viewer-vue.css'
+import VueViewer from 'v-viewer-picture'
 const app = createApp(App)
 app.use(VueViewer)
 app.mount('#app')
@@ -58,7 +58,7 @@ app.mount('#app')
 <template>
   <div>
     <!-- directive -->
-    <div class="images" v-viewer>
+    <div class="images" v-viewer-picture>
       <img v-for="src in images" :key="src" :src="src">
     </div>
     <!-- component -->
@@ -93,7 +93,7 @@ app.mount('#app')
 </script>
 <!-- Composition API -->
 <!-- <script lang="ts" setup>
-  import { api as viewerApi } from 'v-viewer'
+  import { api as viewerApi } from 'v-viewer-picture'
   const images = [
     "https://picsum.photos/200/200",
     "https://picsum.photos/300/200",
@@ -112,10 +112,10 @@ app.mount('#app')
 #### Browser
 
 ```html
-<link href="//unpkg.com/viewerjs/dist/viewer.css" rel="stylesheet">
+<link href="//unpkg.com/viewerjs-vue/dist/viewer-vue.css" rel="stylesheet">
 <script src="//unpkg.com/vue"></script>
-<script src="//unpkg.com/viewerjs/dist/viewer.js"></script>
-<script src="//unpkg.com/v-viewer/dist/index.umd.js"></script>
+<script src="//unpkg.com/viewerjs-vue/dist/viewer-vue.js"></script>
+<script src="//unpkg.com/v-viewer-picture/dist/index.umd.js"></script>
 <script>
   app.use(VueViewer.default)
 </script>
@@ -144,7 +144,7 @@ Get the element by selector and then use `el.$viewer` to get the `viewer` instan
 ```vue
 <template>
   <div>
-    <div class="images" v-viewer="{movable: false}">
+    <div class="images" v-viewer-picture="{movable: false}">
       <img v-for="src in images" :src="src" :key="src">
     </div>
     <button type="button" @click="show">Show</button>
@@ -153,8 +153,8 @@ Get the element by selector and then use `el.$viewer` to get the `viewer` instan
 <!-- Options API -->
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import 'viewerjs/dist/viewer.css'
-  import { directive as viewer } from "v-viewer"
+  import 'viewerjs-vue/dist/viewer-vue.css'
+  import { directive as viewer } from "v-viewer-picture"
   export default defineComponent({
     directives: {
       viewer: viewer({
@@ -180,8 +180,8 @@ Get the element by selector and then use `el.$viewer` to get the `viewer` instan
 </script>
 <!-- Composition API -->
 <!-- <script lang="ts" setup>
-  import 'viewerjs/dist/viewer.css'
-  import { directive as viewer } from "v-viewer"
+  import 'viewerjs-vue/dist/viewer-vue.css'
+  import { directive as viewer } from "v-viewer-picture"
   const vViewer = viewer({
     debug: true
   })
@@ -206,7 +206,7 @@ The `viewer` instance will be created only once after the directive binded.
 If you're sure the images inside this element won't change again, use it to avoid unnecessary re-render.
 
 ```vue
-<div class="images" v-viewer.static="{inline: true}">
+<div class="images" v-viewer-picture.static="{inline: true}">
   <img v-for="src in images" :src="src" :key="src">
 </div>
 ```
@@ -218,7 +218,7 @@ The `viewer` instance will be updated by `update` method when the source images 
 If you encounter any display problems, try rebuilding instead of updating.
 
 ```vue
-<div class="images" v-viewer.rebuild="{inline: true}">
+<div class="images" v-viewer-picture.rebuild="{inline: true}">
   <img v-for="src in images" :src="src" :key="src">
 </div>
 ```
@@ -246,8 +246,8 @@ You can simply import the component and register it locally too.
 <!-- Options API -->
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import 'viewerjs/dist/viewer.css'
-  import { component as Viewer } from "v-viewer"
+  import 'viewerjs-vue/dist/viewer-vue.css'
+  import { component as Viewer } from "v-viewer-picture"
   export default defineComponent({
     components: {
       Viewer,
@@ -273,8 +273,8 @@ You can simply import the component and register it locally too.
 </script>
 <!-- Composition API -->
 <!-- <script lang="ts" setup>
-  import 'viewerjs/dist/viewer.css'
-  import { component as Viewer } from "v-viewer"
+  import 'viewerjs-vue/dist/viewer-vue.css'
+  import { component as Viewer } from "v-viewer-picture"
   const images = [
     "https://picsum.photos/200/200",
     "https://picsum.photos/300/200",
@@ -360,8 +360,8 @@ The function returns the current viewer instance.
 <!-- Options API -->
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import 'viewerjs/dist/viewer.css'
-  import { api as viewerApi } from "v-viewer"
+  import 'viewerjs-vue/dist/viewer-vue.css'
+  import { api as viewerApi } from "v-viewer-picture"
   export default defineComponent({
     data() {
       return {
@@ -404,8 +404,8 @@ The function returns the current viewer instance.
 </script>
 <!-- Composition API -->
 <!-- <script lang="ts" setup>
-import 'viewerjs/dist/viewer.css'
-import { api as viewerApi } from 'v-viewer'
+import 'viewerjs-vue/dist/viewer-vue.css'
+import { api as viewerApi } from 'v-viewer-picture'
 const sourceImageURLs = [
   'https://picsum.photos/200/200?random=1',
   'https://picsum.photos/200/200?random=2'
@@ -454,8 +454,8 @@ Refer to [viewer.js](https://github.com/fengyuanchen/viewerjs).
 If you need to avoid name conflict, you can import it like this:
 ```ts
 import { createApp } from 'vue'
-import 'viewerjs/dist/viewer.css'
-import VueViewer from 'v-viewer'
+import 'viewerjs-vue/dist/viewer-vue.css'
+import VueViewer from 'v-viewer-picture'
 import App from './App.vue'
 
 export const app = createApp(App)
@@ -536,8 +536,8 @@ If you need to set the viewer default options, you can import it like this:
 
 ```ts
 import { createApp } from 'vue'
-import 'viewerjs/dist/viewer.css'
-import VueViewer from 'v-viewer'
+import 'viewerjs-vue/dist/viewer-vue.css'
+import VueViewer from 'v-viewer-picture'
 import App from './App.vue'
 
 export const app = createApp(App)
@@ -552,7 +552,7 @@ app.mount('#app')
 And you can reset the default options at any other time:
 
 ```javascript
-import VueViewer from 'v-viewer'
+import VueViewer from 'v-viewer-picture'
 
 VueViewer.setDefaults({
   zIndexInline: 2021,
