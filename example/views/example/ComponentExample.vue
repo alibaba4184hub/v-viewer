@@ -10,6 +10,7 @@ import VueViewer, { component } from '../../../src'
 
 VueViewer.setDefaults({
   zIndexInline: 2021,
+  focus: false,
 })
 
 class ImageData {
@@ -175,6 +176,10 @@ export default defineComponent({
       state.options.inline = inline
     }
 
+    function handleKeydown(event) {
+      event.stopPropagation()
+    }
+
     return {
       ...toRefs(state),
       inited,
@@ -197,6 +202,7 @@ export default defineComponent({
       tooltip,
       reset,
       toggleInline,
+      handleKeydown,
     }
   },
 })
@@ -698,6 +704,7 @@ const toggleInline = (inline: boolean) => {
             :images="images"
             rebuild
             class="viewer"
+            @keydown.stop="handleKeydown"
             @inited="inited"
           >
             <template #default="scope">

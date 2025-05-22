@@ -10,6 +10,7 @@ import VueViewer, { Viewer, directive } from '../../../src'
 
 VueViewer.setDefaults({
   zIndex: 2021,
+  focus: true,
 })
 
 class ImageData {
@@ -61,7 +62,7 @@ export default defineComponent({
     }
 
     function show() {
-      el.value && el.value.$viewer.show()
+      el.value && el.value.$viewer?.show()
     }
 
     return {
@@ -193,7 +194,7 @@ const show = () => {
     </p>
     <div
       ref="el"
-      v-viewer-picture="options"
+      v-viewer="options"
       class="images clearfix"
     >
       <template v-for="{ source, thumbnail, title } in images" :key="source">
