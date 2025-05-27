@@ -11,6 +11,7 @@ import VueViewer, { Viewer, directive } from '../../../src'
 VueViewer.setDefaults({
   zIndex: 2021,
   focus: true,
+  inline: false,
 })
 
 class ImageData {
@@ -192,6 +193,7 @@ const show = () => {
     <p>
       To show the viewer, you can click these images too.
     </p>
+    <input type="text" value="测试文本">
     <div
       ref="el"
       v-viewer="options"
